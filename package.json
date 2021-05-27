@@ -4,7 +4,8 @@
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. Название pull request может быть любое.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "./node_modules/.bin/parcel ./index.html",
+    "build": "./node_modules/.bin/parcel build ./index.html"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,11 @@
   },
   "homepage": "https://github.com/vadimfrolov/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "less": "^4.1.1",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7"
   }
 }

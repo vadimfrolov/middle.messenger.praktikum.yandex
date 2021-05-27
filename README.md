@@ -1,3 +1,7 @@
+### Netlify https://stoic-spence-e5d073.netlify.app/
+
+### Figma https://www.figma.com/file/EdZGkH1oXP3PEgGmWlNA3L/Chat?node-id=0%3A1
+
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
 
 ### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. Название pull request может быть любое.
