@@ -14,15 +14,15 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs')
 app.set("views", path.join(__dirname, "views"));
-// app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "views"));
 
-// app.get('/about', (req, res) => {
-//   res.render('about')
-// })
+app.get('/about', (req, res) => {
+  res.render('about')
+})
 
-// app.get('/chat', (req, res) => {
-//   res.render('chat')
-// })
+app.get('/chat', (req, res) => {
+  res.render('chat')
+})
 
 app.listen(PORT, function () {
   console.log(`Example app listening on port ${PORT}!`);
