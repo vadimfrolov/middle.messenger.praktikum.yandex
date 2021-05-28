@@ -2,6 +2,21 @@ body {
   background: #d3d3d3;
   color: #454545;
 }
+.left-menu-panel {
+  position: relative;
+  width: 50%;
+  float: left;
+  height: 100%;
+  background-color: #282828;
+}
+.dialog-panel {
+  position: relative;
+  width: 50%;
+  float: left;
+  height: 100%;
+  background-color: #0080ff;
+  z-index: 1010101010;
+}
 
 
 /*# sourceMappingURL=/style.2cf34713.css.map */
