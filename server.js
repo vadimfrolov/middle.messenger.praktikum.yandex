@@ -20,6 +20,10 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
+app.get("/", (req, res) => {
+    res.redirect("/login");
+  });
+
 app.get("/about", (req, res) => {
     res.render("about");
 });
