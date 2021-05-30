@@ -1,42 +1,32 @@
-@color-orange: #ff9900;
-@color-graylight: #cccccc;
+@import "./src/layout/style/tables.less";
+@import "./src/layout/style/message.less";
+@import "./src/layout/style/chatNavigation.less";
+@import "./src/layout/style/buttons.less";
+@import "./src/layout/style/login.less";
+@import "./src/layout/style/error.less";
+
+// @color-orange: #ff9900;
+@color-graylight: #f2f2f2;
 @color-asphalt: #d3d3d3;
 @color-blackmedium: #454545;
+@color-alert: #DD7676;
+@color-main-violet: #464B65;
 body {
-    background: @color-asphalt;
-    color: @color-blackmedium;
+    // background: @color-asphalt;
+    // color: @color-blackmedium;
+    margin: 0px;
 }
 
-// .split {
-//     height: 100%;
-//     width: 50%;
-//     position: fixed;
-//     z-index: 1;
-//     top: 0;
-//     overflow-x: hidden;
-//     padding-top: 20px;
-// }
-
-.left-menu-panel {
-    position: relative;
-  width: 50%;
-  float: left;
-  height: 100%;
-  background-color: #282828;
+a {
+    text-decoration: none;
+    // color: @color-blackmedium;
 }
 
-.dialog-panel {
-    position: relative;
-    width: 50%;
-    float: left;
-    height: 100%;
-    background-color: #0080ff;
-    z-index: 1010101010
-  }
+button {
+    border: none;
+    background: none;
+}
 
-// .concrete {
-//     color:@color-orange;
-// }
-// h1, h2{
-//     color: @color-blackmedium;
-// }
+button:hover {
+    cursor: pointer;
+}

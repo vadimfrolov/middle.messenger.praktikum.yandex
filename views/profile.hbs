@@ -1,0 +1,27 @@
+<div class="profile-page-container">
+    <div class="profile-page-content">
+        <img src="../static/img/avatar.png" alt="Avatar" style="width:190px" />
+        <table class="profile-section">
+            {{#each profile}}
+                <tr>
+                    <td>{{category}}</td>
+                    <td class="second-column">{{content}}</td>
+                </tr>
+            {{/each}}
+            <tr style="height:40px"><td></td><td></td></tr>
+
+            <tr>
+                <td><button>Изменить данные</button></td>
+                <td class="second-column" />
+            </tr>
+            <tr>
+                <td><button>Изменить пароль</button></td>
+                 <td class="second-column" />
+            </tr>
+            <tr>
+                <td><button><a class="exit-button" href="/login">Выйти</a></button></td>
+                 <td class="second-column" />
+            </tr>
+        </table>
+    </div>
+</div>

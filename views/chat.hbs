@@ -1,3 +1,31 @@
+<div class="page-container">
+    <div class="left-menu-panel">
+        <div class="container">
+            <p class="message-top-line">
+                <input
+                    class="login-input"
+                    type="text"
+                    id="searcbar"
+                    placeholder="поиск"
+                    name="message-search"
+                />
+                <a href="/profile">Профиль</a>
+            </p>
+        </div>
+        {{#each message}}
+            <div class="container">
+                <img src={{imgSrc}} alt="Avatar" style="width:90px" />
+                <p class="message-top-line"><span
+                        class="message-name"
+                    >{{name}}</span><span
+                        class="message-time"
+                    >{{time}}</span></p>
+                <p class="ellipsis">{{text}}</p>
+            </div>
+        {{/each}}
 
-  <div class="left-menu-panel">left</div>
-  <div class="dialog-panel">right</div>
+    </div>
+    <div class="dialog-panel">
+        <div class="message-panel">Выберите чат чтобы отправить сообщение</div>
+    </div>
+</div>

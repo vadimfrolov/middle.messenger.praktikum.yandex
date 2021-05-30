@@ -1,21 +1,16 @@
-body {
-  background: #d3d3d3;
-  color: #454545;
-}
 .left-menu-panel {
   position: relative;
-  width: 50%;
+  width: 30%;
   float: left;
-  height: 100%;
+  height: 100vh;
   background-color: #282828;
+  border-right: 1px solid #454545;
 }
 .dialog-panel {
-  position: relative;
-  width: 50%;
-  float: left;
-  height: 100%;
   background-color: #0080ff;
-  z-index: 1010101010;
+}
+.container {
+  display: flex;
 }
 
 
