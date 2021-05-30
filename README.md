@@ -1,5 +1,5 @@
-### Netlify https://stoic-spence-e5d073.netlify.app/
 
+(https://pin.it/3GhFQO8)
 ### Figma https://www.figma.com/file/EdZGkH1oXP3PEgGmWlNA3L/Chat?node-id=0%3A1
 
 ## Стек
@@ -29,3 +29,4 @@
 - `npm run start` — запуск стаьбильной версии на порту 3000
 
 ###  Есть проблема с запуском dev версии в через npm run dev и связкой между index.html и Handlebars.
+### Netlify https://stoic-spence-e5d073.netlify.app/
