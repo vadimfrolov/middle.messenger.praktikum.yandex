@@ -1,5 +1,5 @@
 ## Первый PR Sprint 1 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/1
-
+* Прошу прощения, почему-то репозиторий был приватным.
 
 
 ![logo png](https://i.pinimg.com/originals/e8/f0/51/e8f051eb8fa84555ae94f95b979df508.gif)
