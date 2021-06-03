@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./index.html",
-    "build": "parcel build ./index.html",
-    "start": "nodemon server.js"
+    "build": "parcel build ./index.html"
   },
   "repository": {
     "type": "git",
