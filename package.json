@@ -4,8 +4,8 @@
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. Название pull request может быть любое.",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/parcel ./index.html",
-    "build": "./node_modules/.bin/parcel build ./index.html",
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html",
     "start": "nodemon server.js"
   },
   "repository": {
