@@ -1,5 +1,15 @@
 ## Первый PR Sprint 1 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/1
-* Прошу прощения, почему-то репозиторий был приватным.
+
+Исправления по замечаниям из первого PR:
+
+- Страница на Netlify теперь доступна https://stoic-spence-e5d073.netlify.app/
+- npm run dev - теперь работает
+- добавил в Prettier настройку "endOfLine": "lf"
+- убрал из кэша git папку dist, и добавил её в .gitignore
+- для рендера данных через app вынес мокап данные в data.js и formData.js
+- исправил команду в package.json на "dev": "parcel ./index.html"
+- подключил handlebars в 2х html файлах signup и chat, в дальнейшем, когда будет понятно как нужно будет сделать для этого приложения роутинг и прочии функции, структура может поменяться
+
 
 
 ![logo png](https://i.pinimg.com/originals/e8/f0/51/e8f051eb8fa84555ae94f95b979df508.gif)
