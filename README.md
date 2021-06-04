@@ -1,4 +1,4 @@
-## Первый PR Sprint 1 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/1
+## PR с исправлениями Sprint 1 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/4
 
 Исправления по замечаниям из первого PR:
 
