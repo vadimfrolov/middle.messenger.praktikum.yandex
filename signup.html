@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet/less" type="text/css" href="./style.less" />
+        <title>Chat</title>
+        <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script type="module" src="./src/utils/logger.js"></script>
+    </head>
+
+    <body>
+        <div class="profile-page-container">
+            <div class="profile-page-content signin-wrap">
+                <span class="login-title">Регистрация</span>
+                <input name="email" type="text" placeholder="Почта" class="login-input" />
+                <input name="login" type="text" placeholder="Логин" class="login-input" />
+                <input name="first_name" type="text" placeholder="Имя" class="login-input" />
+                <input name="second_name" type="text" placeholder="Фамилия" class="login-input" />
+                <input name="phone" type="tel" placeholder="Телефон" class="login-input" />
+                <input
+                    type="password"
+                    placeholder="Пароль"
+                    name="newPassword"
+                    class="login-input"
+                    autocomplete="new-password"
+                />
+                <input
+                    type="password"
+                    placeholder="Пароль ещё раз"
+                    name="newPassword"
+                    class="login-input"
+                    autocomplete="new-password"
+                />
+                <button class="login-button login-button-margin">
+                    <a href="/chat">Зарегистрироваться</a>
+                </button>
+                <button class="register-button">
+                    <a href="/login">Войти</a>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

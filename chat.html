@@ -1,0 +1,124 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet/less" type="text/css" href="./style.less" />
+        <title>Chat</title>
+        <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script type="module" src="./src/utils/logger.js"></script>
+    </head>
+
+    <body>
+        <div class="page-container">
+            <div class="left-menu-panel">
+                <div class="container">
+                    <p class="message-top-line">
+                        <input
+                            class="login-input"
+                            type="text"
+                            id="searcbar"
+                            placeholder="поиск"
+                            name="message-search"
+                        />
+                        <a href="/profile">Профиль</a>
+                    </p>
+                </div>
+                <div id="messagePanel"></div>
+                <script id="message-template" type="text/x-handlebars-template">
+                    {{#each message}}
+                        <div class='container'>
+                            <img src={{imgSrc}} alt='Avatar' style='width:90px' />
+                            <p class='message-top-line'><span
+                                    class='message-name'
+                                >{{name}}</span><span
+                                    class='message-time'
+                                >{{time}}</span></p>
+                            <p class='ellipsis'>{{text}}</p>
+                        </div>
+                    {{/each}}
+                </script>
+
+                <script type="text/javascript">
+                    const messageInfo =
+                        document.getElementById('message-template').innerHTML;
+                    const template = Handlebars.compile(messageInfo);
+                    const messageData = template({
+                        message: [
+                            {
+                                imgSrc: 'https://i.kym-cdn.com/photos/images/newsfeed/001/725/816/0dc.png',
+                                name: 'Сергей',
+                                time: '22:39 24.05',
+                                text: 'Привет, ты уже осовободился? Пошли в кино, скоро будут показывать Рэмбо: Первая кровь',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                            {
+                                imgSrc: 'https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png',
+                                name: 'Name',
+                                time: 'time',
+                                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore fsfgddf fdsfdf',
+                            },
+                        ],
+                    })
+                    document.getElementById("messagePanel").innerHTML += messageData;
+                </script>
+            </div>
+            <div class="dialog-panel">
+                <div class="message-panel">
+                    Выберите чат чтобы отправить сообщение
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

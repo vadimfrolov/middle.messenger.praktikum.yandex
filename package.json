@@ -2,7 +2,7 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. Название pull request может быть любое.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "parcel ./index.html",
     "build": "parcel build ./index.html",
