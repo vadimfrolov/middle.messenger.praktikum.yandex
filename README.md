@@ -4,6 +4,7 @@
 
 - Страница на Netlify теперь доступна https://stoic-spence-e5d073.netlify.app/
 - npm run dev - теперь работает
+- данные из форм теперь в общем массиве из name и value
 - добавил в Prettier настройку "endOfLine": "lf"
 - убрал из кэша git папку dist, и добавил её в .gitignore
 - для рендера данных через app вынес мокап данные в data.js и formData.js
