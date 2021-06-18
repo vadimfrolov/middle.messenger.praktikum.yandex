@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chat</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
+
+  <body>
+    <div class="page-container">
+      <div class="left-menu-panel">
+        <div class="container">
+          <p class="message-top-line">
+            <input
+              class="login-input"
+              type="text"
+              id="searcbar"
+              placeholder="поиск"
+              name="message-search"
+            />
+            <a href="profile.html">Профиль</a>
+          </p>
+        </div>
+        <div id="app"></div>
+        <script src="../src/pages/chat-page/chat-page.ts"></script>
+      </div>
+      <div class="dialog-panel">
+        <div class="message-panel">Выберите чат чтобы отправить сообщение</div>
+      </div>
+    </div>
+  </body>
+</html>

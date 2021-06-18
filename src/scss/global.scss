@@ -1,0 +1,30 @@
+@import "../style.scss";
+
+body {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+.second-column {
+  text-align: right;
+}
+
+.profile-section {
+  td {
+      width: 300px;
+      border-bottom: 1px solid #f2f2f2;
+      padding: 4px 8px;
+  }
+}
+
+.profile-page-container {
+  display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
