@@ -1,15 +1,13 @@
-## PR с исправлениями Sprint 1 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/5
+## Первый вариант PR Sprint 2 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/5
 
-Исправления по замечаниям из первого PR:
+В новой версии сделано:
 
-- Страница на Netlify теперь доступна https://stoic-spence-e5d073.netlify.app/
-- npm run dev - теперь работает
-- данные из форм теперь в общем массиве из name и value
-- добавил в Prettier настройку "endOfLine": "lf"
-- убрал из кэша git папку dist, и добавил её в .gitignore
-- для рендера данных через app вынес мокап данные в data.js и formData.js
-- исправил команду в package.json на "dev": "parcel ./index.html"
-- подключил handlebars в 2х html файлах signup и chat, в дальнейшем, когда будет понятно как нужно будет сделать для этого приложения роутинг и прочии функции, структура может поменяться
+- добавил ESLint
+- валидация форм
+- event-bus и block
+- компиляция html из hbs
+
+- некоторые страницы недоделаны, к примеру окно диалога, будет понятнее когда дойдём до бэкенда
 
 
 
@@ -40,7 +38,6 @@
 - `npm install` — установка js библиотек
 - `npm start` — запуск рабочей версии на порту 3000
 - `npm run build` — сборка стабильной версии
-- `npm run start` — запуск стаьбильной версии на порту 3000
 
-###  Есть проблема с запуском dev версии в через npm run dev и связкой между index.html и Handlebars.
+###  Запутался в роутинге, первая страница открыается
 ### Netlify https://stoic-spence-e5d073.netlify.app/
