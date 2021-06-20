@@ -1,55 +1,56 @@
-@import "../style.scss";
+@import '../style.scss';
 
 body {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 .second-column {
-  text-align: right;
+    text-align: right;
 }
 
 .profile-section {
-  td {
-      width: 300px;
-      border-bottom: 1px solid #f2f2f2;
-      padding: 4px 8px;
-  }
+    td {
+        width: 300px;
+        border-bottom: 1px solid #f2f2f2;
+        padding: 4px 8px;
+    }
 }
 
 .profile-page-container {
-  display: flex;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
+    top: 50%;
+    display: flex;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .error {
-  width: 240px;
-  height: 48px;
-  border-radius: 24px;
-  margin-bottom: 32px;
-  position: relative;
-  border-style: hidden;
-  border-bottom: 1px solid #464b65;
-  margin-bottom: 20px;
-  display: block;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  color: #ff2f2f;
-  font-size: 12px;
-  font-weight: 400;
-  text-align: center;
-  display: none;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    width: 240px;
+    height: 48px;
+    border-radius: 24px;
+    margin-bottom: 32px;
+    position: relative;
+    border-style: hidden;
+    border-bottom: 1px solid #464b65;
+    margin-bottom: 20px;
+    display: block;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    color: #ff2f2f;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    display: none;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

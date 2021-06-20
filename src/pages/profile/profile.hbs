@@ -3,38 +3,33 @@
         <img
             src='https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png'
             alt='Avatar'
-            class="avatar-width-profile"
+            class='avatar-width-profile'
         />
-        <table class='profile-section' id='profilePanel'>
+        <div class='profile-section' id='profilePanel'>
 
             {{#each profile}}
-                <tr>
-                    <td>{{category}}</td>
-                    <td class='second-column'>{{content}}</td>
-                </tr>
+                <p>
+                    <div>{{category}}
+                        <span class='second-column'>{{content}}</span>
+                    </div>
+                </p>
             {{/each}}
 
-            <tr class="divider">
-                <td></td>
-                <td></td>
-            </tr>
+            <p class='divider'></p>
 
-            <tr>
-                <td><button>Изменить данные</button></td>
-                <td class='second-column'></td>
-            </tr>
-            <tr>
-                <td><button>Изменить пароль</button></td>
-                <td class='second-column'></td>
-            </tr>
-            <tr>
-                <td>
+            <div>
+                <p><button>Изменить данные</button></p>
+            </div>
+            <div>
+                <p><button>Изменить пароль</button></p>
+            </div>
+            <div>
+                <p>
                     <button>
                         <a class='exit-button' href='index.html'>Выйти</a>
                     </button>
-                </td>
-                <td class='second-column'></td>
-            </tr>
-        </table>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
