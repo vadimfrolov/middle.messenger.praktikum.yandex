@@ -1,11 +1,19 @@
-## Первый вариант PR Sprint 2 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/5
+## Второй вариант PR Sprint 2 с исправлениями - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/6
 
-В новой версии сделано:
+Большое спасибо за комментарии, создал второй PR с исправлениями
 
-- добавил ESLint
-- валидация форм
-- event-bus и block
-- компиляция html из hbs
+- Почистил scss файлы
+- Переделал структуру страницы профиля - убрал table
+-  Сделал метод getListenerForFormSubmit более универсальным
+- Убрал из .gitignore  неверные правила для папки dist
+- Удалил версию Node из package.json, оставил только в .nvmrc
+- Удалил повторяющиеся стили из src/components/form/form.scss
+- Перенёс ширину аватара в класс и инлайн-стиля
+- Привёл к одному виду стиль файлов, теперь без окончаний на “;”
+- Убрал лишнюю строку в src/components/messages/messages.ts
+- Убрал пустые строки в scss файлах
+- Убрал комментарии
+- Сделал одинаковые отступы в файлах
 
 - некоторые страницы недоделаны, к примеру окно диалога, будет понятнее когда дойдём до бэкенда
 
