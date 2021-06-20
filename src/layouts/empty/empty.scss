@@ -1,17 +1,15 @@
-@import "../../scss/global.scss";
-
-
+@import '../../scss/global.scss';
 
 .layout-empty {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 1200px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1200px;
 
-  .center-element {
-    max-height: 96%;
-    overflow-y: auto;
-  }
+    .center-element {
+        max-height: 96%;
+        overflow-y: auto;
+    }
 }

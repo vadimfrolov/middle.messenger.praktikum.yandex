@@ -10,10 +10,7 @@ type NoTimeout = Omit<Options, 'timeout'>
 
 type Body = { [key: string]: any } | FormData | string
 
-type FetchMethod = (
-  url: string,
-  options: NoMethod
-) => Promise<XMLHttpRequest>
+type FetchMethod = (url: string, options: NoMethod) => Promise<XMLHttpRequest>
 
 type Options = {
     method?: METHOD
@@ -21,7 +18,6 @@ type Options = {
     timeout?: number
     headers?: { [key: string]: string }
 }
-
 
 interface Fetch {
     get: FetchMethod
@@ -52,10 +48,7 @@ export class HTTPTransport implements Fetch {
         )
     }
 
-    put = (
-        url: string,
-        options: NoMethod = {}
-    ): Promise<XMLHttpRequest> => {
+    put = (url: string, options: NoMethod = {}): Promise<XMLHttpRequest> => {
         return this.request(
             url,
             { ...options, method: METHOD.PUT },
@@ -63,10 +56,7 @@ export class HTTPTransport implements Fetch {
         )
     }
 
-    post = (
-        url: string,
-        options: NoMethod = {}
-    ): Promise<XMLHttpRequest> => {
+    post = (url: string, options: NoMethod = {}): Promise<XMLHttpRequest> => {
         return this.request(
             url,
             { ...options, method: METHOD.POST },
@@ -74,10 +64,7 @@ export class HTTPTransport implements Fetch {
         )
     }
 
-    delete = (
-        url: string,
-        options: NoMethod = {}
-    ): Promise<XMLHttpRequest> => {
+    delete = (url: string, options: NoMethod = {}): Promise<XMLHttpRequest> => {
         return this.request(
             url,
             { ...options, method: METHOD.DELETE },
