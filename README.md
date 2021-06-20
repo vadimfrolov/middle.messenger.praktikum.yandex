@@ -1,4 +1,4 @@
-## Второй вариант PR Sprint 2 с исправлениями - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/6
+## Второй вариант PR Sprint 2 с исправлениями - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/7
 
 Большое спасибо за комментарии, создал второй PR с исправлениями
 
