@@ -52,6 +52,7 @@ export function getDefaultListenersForValidation(
 
 export function getListenerForFormSubmit(
     validator: Validate,
+    target: string,
     selectorField: string,
     errorClassName: string
 ) {
@@ -61,8 +62,7 @@ export function getListenerForFormSubmit(
         listener: (event: Event) => {
             event.preventDefault()
             const form = event.target as HTMLFormElement
-            console.log(form, 'form')
-            const fields = form.querySelectorAll('[data-field]')
+            const fields = form.querySelectorAll(target)
             let isValid = true
             Array.from(fields).forEach((field: HTMLInputElement) => {
                 const result = validator.test(field.name, field.value)

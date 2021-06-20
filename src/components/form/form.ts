@@ -41,6 +41,7 @@ export default class Form extends Block {
                 ),
                 getListenerForFormSubmit(
                     validator,
+                    '[data-field]',
                     'form',
                     'form__field-wrapper--error'
                 ),
