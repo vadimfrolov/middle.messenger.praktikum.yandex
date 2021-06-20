@@ -60,8 +60,9 @@ export function getListenerForFormSubmit(
         eventName: 'submit',
         listener: (event: Event) => {
             event.preventDefault()
-            const eventTargert = event.target as HTMLFormElement
-            const fields = eventTargert.querySelectorAll('[data-field]')
+            const form = event.target as HTMLFormElement
+            console.log(form, 'form')
+            const fields = form.querySelectorAll('[data-field]')
             let isValid = true
             Array.from(fields).forEach((field: HTMLInputElement) => {
                 const result = validator.test(field.name, field.value)
@@ -76,7 +77,7 @@ export function getListenerForFormSubmit(
             if (!isValid) {
                 return
             }
-            const formData = new FormData(eventTargert)
+            const formData = new FormData(form)
             const data = Array.from(formData.entries()).reduce<{
                 [key: string]: string
             }>((acc, [key, value]) => {
@@ -84,8 +85,8 @@ export function getListenerForFormSubmit(
                 return acc
             }, {})
             console.log(data)
-            if (eventTargert.dataset.redirectUrl) {
-                window.location.pathname = eventTargert.dataset.redirectUrl
+            if (form.dataset.redirectUrl) {
+                window.location.pathname = form.dataset.redirectUrl
             }
         },
     }
