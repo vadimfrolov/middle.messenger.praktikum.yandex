@@ -21,3 +21,22 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+%error {
+    &::after {
+        display: block;
+        content: attr(data-error-text);
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        color: #ff2f2f;
+        font-size: 12px;
+        font-weight: 400;
+        text-align: center;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

@@ -1,4 +1,4 @@
-import { Block } from '../../framework/block'
+import {Block} from '../../framework/block'
 import compiledTemplate from './messageElem.hbs'
 import './messageElem.scss'
 

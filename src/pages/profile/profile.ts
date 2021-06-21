@@ -1,4 +1,4 @@
-import { Block } from '../../framework/block'
+import {Block} from '../../framework/block'
 import compiledTemplate from './profile.hbs'
 import data from './profile-data'
 import '../../helpers/handlebarsHelpers'
@@ -6,7 +6,7 @@ import '../../layouts/base/base'
 import './profile.scss'
 
 export type Props = {
-    profile: { category: string; content: string }[]
+    profile: {category: string; content: string}[]
 }
 
 export default class Chat extends Block {

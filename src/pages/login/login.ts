@@ -1,9 +1,9 @@
-import { Block } from '../../framework/block'
-import Validator, { ValidateRules } from '../../framework/validator'
+import {Block} from '../../framework/block'
+import Validator, {ValidateRules} from '../../framework/validator'
 import compiledTemplate from './login.hbs'
 import '../../layouts/empty/empty'
 import '../../helpers/handlebarsHelpers'
-import Form, { Props as FormProps } from '../../components/form/form'
+import Form, {Props as FormProps} from '../../components/form/form'
 import data from './login-data'
 import './login.scss'
 
@@ -14,7 +14,7 @@ type Props = {
 const validateRules: ValidateRules = {
     login: [
         {
-            rule: (value) => value.length > 0,
+            rule: value => value.length > 0,
             errorMessage: 'Обязательное поле',
         },
         {
@@ -24,7 +24,7 @@ const validateRules: ValidateRules = {
     ],
     password: [
         {
-            rule: (value) => value.length > 0,
+            rule: value => value.length > 0,
             errorMessage: 'Обязательное поле',
         },
         {
@@ -41,7 +41,7 @@ export default class Login extends Block {
         super(props, {
             form: {
                 component: Form,
-                getProps: (props: Props) => ({ ...props.form, validator }),
+                getProps: (props: Props) => ({...props.form, validator}),
             },
         })
     }

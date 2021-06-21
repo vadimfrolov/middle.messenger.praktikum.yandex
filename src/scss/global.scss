@@ -29,28 +29,3 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-.error {
-    width: 240px;
-    height: 48px;
-    border-radius: 24px;
-    margin-bottom: 32px;
-    position: relative;
-    border-style: hidden;
-    border-bottom: 1px solid #464b65;
-    margin-bottom: 20px;
-    display: block;
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    color: #ff2f2f;
-    font-size: 12px;
-    font-weight: 400;
-    text-align: center;
-    display: none;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}

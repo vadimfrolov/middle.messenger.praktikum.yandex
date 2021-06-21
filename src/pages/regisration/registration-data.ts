@@ -1,7 +1,7 @@
 const data = {
     form: {
         title: 'Регистрация',
-        redirectUrl: '/change-chat.html',
+        redirectUrl: '/chat.html',
         fields: [
             {
                 name: 'email',

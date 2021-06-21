@@ -1,5 +1,5 @@
-import { Block } from '../../framework/block'
-import { Validate } from '../../framework/validator'
+import {Block} from '../../framework/block'
+import {Validate} from '../../framework/validator'
 import compiledTemplate from './form.hbs'
 import {
     getDefaultListenersForValidation,
@@ -30,20 +30,20 @@ type ValidatorProps = {
 
 export default class Form extends Block {
     constructor(props: Props & ValidatorProps) {
-        const { validator, ...restProps } = props
+        const {validator, ...restProps} = props
         super({
             ...restProps,
             events: [
                 ...getDefaultListenersForValidation(
                     validator,
                     'input',
-                    'form__field-wrapper--error'
+                    'form__field-wrapper.error'
                 ),
                 getListenerForFormSubmit(
                     validator,
                     '[data-field]',
                     'form',
-                    'form__field-wrapper--error'
+                    'form__field-wrapper.error'
                 ),
             ],
         })

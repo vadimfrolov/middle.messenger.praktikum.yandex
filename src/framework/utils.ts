@@ -1,4 +1,4 @@
-import { ChildrenProps } from './block'
+import {ChildrenProps} from './block'
 
 export function conventerToHtml(html: string): DocumentFragment {
     var template = document.createElement('template')

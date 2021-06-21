@@ -22,7 +22,7 @@ export default class Validator implements Validate {
     public test(imputField: string, value: string): true | string[] {
         const errors: string[] = []
 
-        this.rules[imputField].forEach(({ rule, errorMessage }) => {
+        this.rules[imputField].forEach(({rule, errorMessage}) => {
             if (rule instanceof RegExp && !rule.test(value)) {
                 errors.push(errorMessage)
             } else if (typeof rule === 'function' && !rule(value)) {

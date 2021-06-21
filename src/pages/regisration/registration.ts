@@ -1,10 +1,10 @@
-import { Block } from '../../framework/block'
-import Validator, { ValidateRules } from '../../framework/validator'
+import {Block} from '../../framework/block'
+import Validator, {ValidateRules} from '../../framework/validator'
 import compiledTemplate from './registration.hbs'
 import data from './registration-data'
 import '../../helpers/handlebarsHelpers'
 import '../../layouts/empty/empty'
-import Form, { Props as FormProps } from '../../components/form/form'
+import Form, {Props as FormProps} from '../../components/form/form'
 
 type Props = {
     form: FormProps
@@ -62,7 +62,7 @@ export default class Registration extends Block {
         super(props, {
             form: {
                 component: Form,
-                getProps: (props: Props) => ({ ...props.form, validator }),
+                getProps: (props: Props) => ({...props.form, validator}),
             },
         })
     }

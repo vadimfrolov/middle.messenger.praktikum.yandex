@@ -1,20 +1,13 @@
-import { ConsturctEvents } from '../framework/block'
-import { Validate } from '../framework/validator'
+import {ConsturctEvents} from '../framework/block'
+import {Validate} from '../framework/validator'
 
-export function setErrorAttributes(
-    elem: HTMLElement,
-    text: string,
-    errorClassName: string
-): void {
+export function setErrorAttributes(elem: HTMLElement, text: string, errorClassName: string): void {
     const wrapper = elem.parentElement as HTMLLIElement
     wrapper.setAttribute('data-error-text', text)
     wrapper.classList.add(errorClassName)
 }
 
-export function removeErrorAttributes(
-    elem: HTMLElement,
-    errorClassName: string
-) {
+export function removeErrorAttributes(elem: HTMLElement, errorClassName: string) {
     const wrapper = elem.parentElement as HTMLLIElement
     wrapper.removeAttribute('data-error-text')
     wrapper.classList.remove(errorClassName)
@@ -62,6 +55,7 @@ export function getListenerForFormSubmit(
         listener: (event: Event) => {
             event.preventDefault()
             const form = event.target as HTMLFormElement
+            const formData = new FormData(event.target as HTMLFormElement)
             const fields = form.querySelectorAll(target)
             let isValid = true
             Array.from(fields).forEach((field: HTMLInputElement) => {
@@ -77,7 +71,6 @@ export function getListenerForFormSubmit(
             if (!isValid) {
                 return
             }
-            const formData = new FormData(form)
             const data = Array.from(formData.entries()).reduce<{
                 [key: string]: string
             }>((acc, [key, value]) => {
