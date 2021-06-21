@@ -1,6 +1,10 @@
-## Второй вариант PR Sprint 2 с исправлениями - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/7
+## Дополнительные правки по PR Sprint 2 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/8
 
-Большое спасибо за комментарии, создал второй PR с исправлениями
+22.06
+- Добавил дополнительных стилей в конфигурацию prettier из рабочего проекта с основной работы
+- Прошёлся по Всем файлам и вручную отформатировал
+- Класс —error вынес в глобальный стиль style.scss
+
 
 - Почистил scss файлы
 - Переделал структуру страницы профиля - убрал table
