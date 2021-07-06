@@ -1,0 +1,89 @@
+@import '../../theme.less';
+
+.avatar-size(@_size: 50px) {
+
+  &,
+  img {
+    height: @_size;
+    width: @_size;
+  }
+
+  &.avatar-default {
+
+    img {
+      height: calc(@_size / 2);
+      width: calc(@_size / 2);
+    }
+  }
+}
+
+.avatar {
+  .flex-center-view();
+
+  .input-container {
+    display: none;
+  }
+
+  &-input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &-image {
+    align-items: center;
+    .avatar-size();
+    background-color: @primary-background-color;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    &:hover:not(.avatar-disabled) {
+      background-color: lighten(@black-color, 50%);
+
+      &:before {
+        color: @white-color;
+        content: 'Новый аватар';
+        position: absolute;
+        text-align: center;
+        width: 50px;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  &-disabled,
+  .avatar-no-upload {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &-disabled {
+    opacity: 0.4;
+  }
+
+  &-big {
+    .avatar-size(100px);
+
+    &:hover:not(.avatar-disabled) {
+
+      &:before {
+        content: 'Выберите новый аватар';
+        width: 100px;
+      }
+    }
+  }
+
+  &-error {
+    color: @error-color;
+    display: block;
+    font-size: @font-size-secondary;
+    margin-top: 10px;
+    text-align: center;
+  }
+}

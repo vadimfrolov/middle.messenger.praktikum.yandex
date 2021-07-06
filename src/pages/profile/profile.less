@@ -1,0 +1,40 @@
+@import '../../theme.less';
+
+.profile-content {
+  .profile-info(700px, 150px);
+
+  &-data {
+
+    &-avatar {
+
+      &-name {
+        font-size: @font-size-big;
+        font-weight: @semi-bold;
+        text-align: center;
+      }
+    }
+
+    &-person {
+
+      & > div {
+        border-bottom: 2px solid @input-background-color;
+        display: flex;
+        justify-content: space-between;
+        line-height: @primary-height;
+
+        span:first-child {
+          font-weight: @semi-bold;
+        }
+      }
+
+      & > div:last-child {
+        border: none;
+      }
+    }
+
+    &-buttons-group {
+      align-items: flex-start;
+      display: block;
+    }
+  }
+}

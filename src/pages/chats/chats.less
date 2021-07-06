@@ -1,0 +1,21 @@
+@import '../../theme.less';
+
+.chats {
+  display: flex;
+  .size-100();
+
+  &-list-aside {
+    .list-aside();
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    .size-100();
+
+    &-empty {
+      align-self: center;
+      font-size: @font-size-big;
+    }
+  }
+}

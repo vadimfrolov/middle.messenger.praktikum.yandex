@@ -1,0 +1,71 @@
+@import '../../theme.less';
+
+.chats {
+
+  &-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 @general-padding;
+    margin-bottom: 50px;
+
+    &-more {
+      cursor: pointer;
+      line-height: @primary-height;
+      position: relative;
+      z-index: 1000;
+    }
+
+    &-settings {
+      background-color: @white-color;
+      border-radius: @input-radius;
+      box-shadow: 0 0 6px 0 @primary-background-color;
+      display: none;
+      list-style: none;
+      padding: 0;
+      position: absolute;
+      top: 15px;
+      width: 200px;
+
+      &-open {
+        display: block;
+      }
+
+      &-item {
+        cursor: pointer;
+        padding: 0 10px;
+
+        &:hover {
+          background-color: @secondary-background-color;
+        }
+
+        &:first-child {
+          border-bottom: 1px solid lighten(@black-color, 90%);
+        }
+
+        button {
+          text-align: left;
+          width: 100%;
+        }
+      }
+
+      &-subtitle {
+        color: lighten(@black-color, 60%);
+        cursor: text;
+        font-size: 10px;
+        line-height: @primary-height;
+        padding: 0 10px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &-search {
+    padding: @general-padding;
+  }
+
+  &-list {
+    overflow-y: scroll;
+    height: calc(100vh - 111px);
+    .scrollbar();
+  }
+}

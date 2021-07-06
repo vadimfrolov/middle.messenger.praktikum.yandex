@@ -1,0 +1,17 @@
+<div id='{{elementId}}' class='modal '>
+  <div class='modal-overlay'></div>
+  <div class='modal-content'>
+    <h2>{{modalTitle}}</h2>
+    {{#if modalText}}
+      <span class='modal-content-description'>{{modalText}}</span>
+    {{/if}}
+    {{{modalInput}}}
+
+    <div class='modal-content-buttons'>
+      {{{modalButton}}}
+      {{#if modalCancelButton}}
+        {{{modalCancelButton}}}
+      {{/if}}
+    </div>
+  </div>
+</div>

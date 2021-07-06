@@ -1,0 +1,44 @@
+<div id='{{elementId}}' class='profile-content'>
+  {{{aside}}}
+
+  <div class='profile-content-data'>
+    <div class='profile-content-data-avatar'>
+      {{{profileAvatar}}}
+      <span class='profile-content-data-avatar-name'>
+        {{profileInfo.display_name}}
+      </span>
+    </div>
+
+    <div class='profile-content-data-person'>
+      <div>
+        <span>{{titles.EMAIL}}</span><span>{{profileInfo.email}}</span>
+      </div>
+
+      <div>
+        <span>{{titles.LOGIN}}</span><span>{{profileInfo.login}}</span>
+      </div>
+
+      <div>
+        <span>{{titles.NAME}}</span><span>{{profileInfo.first_name}}</span>
+      </div>
+
+      <div>
+        <span>{{titles.SURNAME}}</span><span>{{profileInfo.second_name}}</span>
+      </div>
+
+      <!-- <div>
+        <span>{{titles.CHAT_NAME}}</span><span>{{profileInfo.display_name}}</span>
+      </div> -->
+
+      <div>
+        <span>{{titles.PHONE}}</span><span>{{profileInfo.phone}}</span>
+      </div>
+    </div>
+
+    <div class='profile-content-data-buttons-group'>
+      {{{changeInfoButton}}} <br />
+      {{{changePasswordButton}}} <br />
+      {{{logoutButton}}}
+    </div>
+  </div>
+</div>

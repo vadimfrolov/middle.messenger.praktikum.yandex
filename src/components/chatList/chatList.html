@@ -1,0 +1,31 @@
+﻿<div id='{{elementId}}'>
+  <div class='chats-menu'>
+    {{{createChatButton}}}
+    <div class='chats-menu-more'>{{{settingsButton}}}
+      <ul class='chats-menu-settings' onclick='event.stopPropagation()'>
+        <li class='chats-menu-settings-item'>{{{profileButton}}}</li>
+        {{#if selectedChatId}}
+        <li class='chats-menu-settings-subtitle'>Действия c чатом</li>
+        <li class='chats-menu-settings-item'>{{{addUserButton}}}</li>
+        <li class='chats-menu-settings-item'>{{{deleteUserButton}}}</li>
+        <li class='chats-menu-settings-item'>{{{deleteChatButton}}}</li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div class='chats-search'>
+    {{{chatSearchInput}}}
+  </div> -->
+
+  <div class='chats-list'>
+    {{#each chatListItems}}
+      {{{this}}}
+    {{/each}}
+  </div>
+
+  {{{modalWindowCreateChat}}}
+  {{{modalWindowAddUser}}}
+  {{{modalWindowDeleteUser}}}
+  {{{modalWindowDeleteChat}}}
+</div>

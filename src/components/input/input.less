@@ -1,0 +1,41 @@
+@import '../../theme.less';
+
+@input-width: 300px;
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+
+  .input {
+    background-color: @input-background-color;
+    border: none;
+    border-radius: @input-radius;
+    caret-color: @primary-color;
+    height: @primary-height;
+    .interaction();
+    outline: none;
+    padding: 0 8px;
+    width: @input-width;
+
+    &-label {
+      font-size: @font-size-secondary;
+      margin-bottom: 4px;
+    }
+
+    ::placeholder {
+      color: @secondary-color;
+    }
+
+    &-error {
+      color: @error-color;
+      display: block;
+      font-size: @font-size-primary;
+      min-height: @font-size-primary;
+      max-width: @input-width;
+    }
+
+    &-long {
+      width: 100%;
+    }
+  }
+}

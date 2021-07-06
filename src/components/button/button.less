@@ -1,0 +1,117 @@
+@import '../../theme.less';
+
+.button {
+  background-color: #464b65;
+  color: white;
+  border: none;
+  border-radius: @button-radius;
+  cursor: pointer;
+  font-size: @font-size-big;
+  height: @primary-height;
+  line-height: @primary-height;
+  .interaction();
+  outline: none;
+  width: 200px;
+
+  // link button
+
+  &-link {
+    background: none;
+    color: black;
+    text-align: center;
+    width: unset;
+    padding: 0;
+
+    &-without-decoration {
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: none;
+      color: @black-color;
+    }
+  }
+
+  // round button
+
+  &-round {
+    background-color: @primary-color;
+    border-radius: 50%;
+    color: @white-color;
+    padding: 0;
+    width: 30px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: @black-color;
+      box-shadow: none;
+    }
+  }
+
+  // big button
+
+  &-big {
+    font-size: 18px;
+    min-height: 50px;
+    width: 250px;
+  }
+
+  // logout button
+
+  &-logout {
+    color: @error-color;
+
+    &:hover {
+      color: darken(@error-color, 10%);
+    }
+
+    &:focus {
+      color: darken(@error-color, 15%);
+    }
+
+    &:active {
+      color: darken(@error-color, 20%);
+    }
+  }
+
+  // additional styles
+
+  &-alignment-left {
+    text-align: left;
+  }
+
+  &-bold {
+    font-weight: @semi-bold;
+  }
+
+  &-font-primary {
+    font-size: @font-size-primary;
+  }
+
+  &-transform {
+    transform: rotate(180deg);
+  }
+
+  &-width-content {
+    padding: 0 10px;
+    width: fit-content;
+  }
+
+  &-transparent {
+    background-color: transparent;
+  }
+}
