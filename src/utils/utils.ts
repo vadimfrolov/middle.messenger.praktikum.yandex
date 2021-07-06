@@ -15,9 +15,9 @@ const getName = (event: Event): string => {
     case inputNames.SURNAME:
       name = 'surname';
       break;
-    // case inputNames.CHAT_NAME:
-    //   name = 'chatName';
-      break;
+      // case inputNames.CHAT_NAME:
+      //   name = 'chatName';
+      // break;
     default:
       break;
   }
