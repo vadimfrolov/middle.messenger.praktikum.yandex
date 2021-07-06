@@ -1,5 +1,11 @@
+## Дополнительные правки по PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
 
-![logo png](https://i.pinimg.com/originals/e8/f0/51/e8f051eb8fa84555ae94f95b979df508.gif)
+06.07
+
+- добавил роутинг
+- подключен API чата
+- добавил тесты mocha
+
 ### Figma https://www.figma.com/file/EdZGkH1oXP3PEgGmWlNA3L/Chat?node-id=0%3A1
 
 ## Стек
@@ -21,12 +27,10 @@
 ## Описание
 
 Чат на основе шаблонизатора Handlebars и JavaScript.
-## Установка
+## Установка и запуск
 
 - `npm install` — установка js библиотек
 - `npm start` — запуск рабочей версии на порту 3000
 - `npm run build` — сборка стабильной версии
-- `npm run start` — запуск стаьбильной версии на порту 3000
-
-###  Есть проблема с запуском dev версии в через npm run dev и связкой между index.html и Handlebars.
+- `npm run test` — запуск тестов
 ### Netlify https://stoic-spence-e5d073.netlify.app/

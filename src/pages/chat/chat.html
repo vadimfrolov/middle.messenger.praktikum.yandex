@@ -1,0 +1,69 @@
+﻿<div id='{{elementId}}' class='chat'>
+  <aside>
+    {{{chatListComponent}}}
+  </aside>
+
+  <div class='chat-content'>
+    <div class='chat-header'>
+      <div class='chat-header-avatar'>{{{profileAvatar}}}</div>
+      {{{chatNameButton}}}
+    </div>
+
+    <div class='chat-feed'>
+      {{#each chatMessages}}
+        {{#if isMine}}
+          <div class='chat-feed-item mine'>
+            <div class='chat-feed-item-time'>
+              {{timestamp}}
+              {{#if isOpened}}
+                {{#img '/assets/doublecheck.svg'}}{{/img}}
+              {{else}}
+                {{#if isSent}}
+                  {{#img '/assets/check.svg'}}{{/img}}
+                {{/if}}
+              {{/if}}
+            </div>
+
+            {{#if content}}
+              <div class='chat-feed-item-cloud'>{{content}}</div>
+            {{else}}
+              <div class='chat-feed-item-cloud'>{{#img contentUrl}}{{/img}}</div>
+            {{/if}}
+          </div>
+        {{else}}
+
+          <div class='chat-feed-item'>
+            <div class='chat-feed-item-time'>{{timestamp}}</div>
+            {{#if content}}
+              <div class='chat-feed-item-cloud'>{{content}}</div>
+            {{else}}
+              <div class='chat-feed-item-cloud'>{{#img contentUrl}}{{/img}}</div>
+            {{/if}}
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+
+    <div class='chat-footer'>
+      <div class='chat-footer-menu'>
+        <ul>
+          <li class='chat-footer-menu-item'>
+            {{#img photoImg alt='photo' class='chat-footer-menu-icon'}}{{/img}}
+            <span class='chat-footer-menu-label'>{{titles.PRHOTO}}</span>
+          </li>
+          <li class='chat-footer-menu-item'>
+            {{#img fileImg alt='file' class='chat-footer-menu-icon'}}{{/img}}
+            <span class='chat-footer-menu-label'>{{titles.FILE}}</span>
+          </li>
+          <li class='chat-footer-menu-item'>
+            {{#img locationImg alt='location' class='chat-footer-menu-icon'}}{{/img}}
+            <span class='chat-footer-menu-label'>{{titles.LOCATION}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class='chat-footer-text'>{{{chatInput}}}</div>
+      <div class='chat-footer-submit'>{{{submitButton}}}</div>
+    </div>
+  </div>
+  {{{modalWindowRenameChat}}}
+</div>

@@ -1,0 +1,20 @@
+<div id='{{elementId}}' class='input-container'>
+  {{#if label}}
+    <label for={{inputId}} class='input-label'>{{label}}</label>
+  {{/if}}
+
+  <input 
+    class='input{{inputClass}}'
+    type='{{inputType}}'
+    id={{inputId}}
+    value='{{info}}'
+    placeholder='{{inputPlaceholder}}'
+    autocomplete
+    name='{{name}}'
+    data-action='{{action}}'
+  />
+
+  {{#if error}}
+    <span class='input-error'>{{errorMessage}}</span>
+  {{/if}}
+</div>

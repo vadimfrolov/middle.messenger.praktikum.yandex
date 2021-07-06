@@ -2,7 +2,11 @@
 node_modules
 .cache
 dist
+<<<<<<< HEAD
 build
 .dist
 dist/
 /dist
+=======
+build
+>>>>>>> sprint_3

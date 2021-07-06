@@ -1,0 +1,36 @@
+@import '../../theme.less';
+
+@margin-bottom-elements: 4px;
+@space-for-error: @font-size-secondary;
+
+.login {
+  align-self: center;
+  border: 1px solid #d3d3d3;
+  border-radius: @button-radius;
+  .flex-center-view();
+  margin: 0 auto;
+  margin-top: 22vh;
+  height: @form-height;
+  width: 370px;
+
+  &-container {
+    .flex-center-view();
+    height: 100%;
+
+    &-info {
+
+      & > div {
+        margin-bottom: @margin-bottom-elements;
+      }
+    }
+
+    &-buttons-group {
+      .buttons-group();
+      justify-content: space-between;
+
+      & > button {
+        margin-bottom: @margin-bottom-elements + @space-for-error;
+      }
+    }
+  }
+}

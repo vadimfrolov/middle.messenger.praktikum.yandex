@@ -1,0 +1,157 @@
+@import '../../theme.less';
+
+.chat {
+  display: flex;
+  position: relative;
+  .size-100();
+
+  aside {
+    .list-aside();
+    height: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    padding: 85px 0 60px;
+    .size-100();
+  }
+
+  &-feed {
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 20px;
+    overflow-y: scroll;
+    padding-right: 20px;
+    .scrollbar();
+    width: 100%;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      position: relative;
+      width: 100%;
+
+      &-cloud {
+        background-color: @input-background-color;
+        border-radius: 0 10px 10px 10px;
+        font-size: @font-size-secondary;
+        line-height: 15px;
+        max-width: 500px;
+        padding: 15px 10px;
+        white-space: pre-line;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &-time {
+        color: fade(@primary-color, 50%);
+        font-size: 11px;
+      }
+
+      &:first-child {
+        margin-top: 20px;
+      }
+
+      &.mine {
+        justify-content: flex-end;
+
+        .chat-feed-item-time {
+          align-self: flex-end;
+        }
+
+        .chat-feed-item-cloud {
+          align-self: flex-end;
+          background-color: @selected-color;
+          border-radius: 10px 0 10px 10px;
+        }
+      }
+    }
+  }
+
+  &-header {
+    border-bottom: 1px solid @primary-background-color;
+    display: flex;
+    height: 70px;
+    margin: 15px 20px;
+    position: absolute;
+    width: calc(100% - 340px);
+    top: 0;
+
+    &-avatar {
+
+      .avatar-error {
+        left: 0;
+        position: absolute;
+        top: 45px;
+        width: 200px;
+      }
+    }
+
+    &-name {
+      height: 50px;
+      padding-left: 20px;
+    }
+  }
+
+  &-footer {
+    align-items: center;
+    border-top: 1px solid @primary-background-color;
+    bottom: 0;
+    display: flex;
+    height: 60px;
+    margin: 0 20px;
+    position: absolute;
+    width: calc(100% - 340px);
+
+    &-menu {
+      background: @white-color;
+      border-radius: @input-radius;
+      box-shadow: 0 0 6px 0 @primary-background-color;
+      display: none;
+      left: 0;
+      position: absolute;
+      top: -140px;
+      width: 165px;
+
+      &-open {
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          align-items: center;
+          cursor: pointer;
+          display: flex;
+          padding: 7px 15px;
+
+          img {
+            margin-right: 20px;
+          }
+
+          &:hover {
+            background-color: @secondary-background-color;
+          }
+        }
+      }
+    }
+
+    &-attach {
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+    }
+
+    &-text {
+      padding: 0 20px;
+      width: 100%;
+    }
+  }
+}

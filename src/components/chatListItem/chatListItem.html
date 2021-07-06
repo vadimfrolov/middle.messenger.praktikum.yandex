@@ -1,0 +1,20 @@
+
+<div id='{{elementId}}' class='chat-list-item{{className}}' >
+  <div class='chat-list-item-avatar'>
+    {{{profileAvatar}}}
+  </div>
+
+  <div class='chat-list-item-info'>
+    <div class='chat-list-item-header'>
+      <span class='chat-list-item-name'>{{title}}</span>
+      <span class='chat-list-item-date'>{{date last_message.time}}</span>
+    </div>
+
+    <div class='chat-list-item-content'>
+      <div class='chat-list-item-message'>{{last_message.content}}</div>
+      {{#if unread_count}}
+        <div class='chat-list-item-badge'>{{unread_count}}</div>
+      {{/if}}
+    </div>
+  </div>
+</div>

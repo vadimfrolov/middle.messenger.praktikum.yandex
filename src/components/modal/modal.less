@@ -1,0 +1,45 @@
+@import '../../theme.less';
+
+.modal {
+  background-color: fade(@primary-background-color, 60%);
+  display: none;
+  left: 0;
+  position: fixed;
+  .size-100();
+  top: 0;
+  z-index: 2000;
+
+  &-open {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-overlay {
+    position: absolute;
+    .size-100();
+  }
+
+  &-content {
+    background-color: @white-color;
+    border-radius: @input-radius;
+    box-shadow: 0 0 6px 0 @primary-background-color;
+    .flex-center-view();
+    height: 300px;
+    padding: 30px 50px;
+    width: 400px;
+    z-index: 3000;
+
+    &-description {
+      font-size: @font-size-big;
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      margin-top: auto;
+      width: 220px;
+    }
+  }
+}

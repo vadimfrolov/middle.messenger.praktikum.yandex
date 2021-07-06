@@ -1,3 +1,8 @@
 [build]
+<<<<<<< HEAD
 publish = "dist"
 command = "npm run build"
+=======
+  publish = "dist"
+  command = "npm run build"
+>>>>>>> sprint_3

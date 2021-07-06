@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
+<<<<<<< HEAD
     "target": "es2017",
     "declaration": false,
     "noImplicitAny": true,
@@ -8,5 +9,17 @@
     "noUnusedParameters": true,
     "sourceMap": true,
     "strictNullChecks": true
+=======
+    "target": "es2020",
+    "declaration": false,
+    "module": "es2020",
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+>>>>>>> sprint_3
   }
 }

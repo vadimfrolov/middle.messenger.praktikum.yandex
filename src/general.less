@@ -1,0 +1,30 @@
+@import './theme.less';
+
+* {
+  box-sizing: border-box;
+  color: @primary-color;
+  font-family: @font-family;
+  font-size: @font-size-primary;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  padding-top: 20px;
+}
+
+body > div {
+  .size-100();
+}
+
+h1 {
+  font-size: @font-size-primary * 4;
+}
+
+h2 {
+  font-size: @font-size-primary * 2;
+}
