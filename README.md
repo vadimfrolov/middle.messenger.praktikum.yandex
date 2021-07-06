@@ -1,4 +1,4 @@
-## Дополнительные правки по PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
+## PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
 
 06.07
 
