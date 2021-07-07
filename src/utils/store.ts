@@ -1,13 +1,3 @@
-// interface IGlobalStore {
-//   state: Record<string, unknown>,
-//   subscribers: Record<string, unknown>,
-//   subscribe: (action: string, callback: () => void) => (() => void),
-//   publish: (action: string) => void,
-//   dispatchAction: (action: string, payload: Record<string, unknown> | Record<string, unknown>[]) => void,
-//   unsubscribeAll: () => void,
-//   get: (name: string) => Record<string, unknown> | Record<string, unknown>[] | string | number,
-// }
-
 enum ActionTypes {
   CHAT_LIST = 'chat_list',
   SELECTED_CHAT_ID = 'selected_chat_id',

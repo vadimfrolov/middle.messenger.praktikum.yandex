@@ -62,13 +62,13 @@ export class HTTPTransport {
       xhr.open(method!, path);
 
       xhr.onload = function() {
-        if (xhr.status === 500) {
+        if (xhr.status >= 500) {
           reject(xhr.response);
 
           return;
         }
 
-        if (xhr.status === 404) {
+        if (400 <= xhr.status && xhr.status < 500) {
           resolve('[]');
         }
 

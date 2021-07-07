@@ -8,10 +8,10 @@ import './button.less';
 
 class Button extends Block {
   constructor(options: IButtonOptions, rootId?: string) {
-    options.buttonClass = options.buttonClass ? ` ${options.buttonClass}` : '';
-    options.buttonType = options.buttonType || 'button';
-
-    super(options, rootId);
+    let newDataOption = {...options};
+    newDataOption.buttonClass = options.buttonClass ? ` ${options.buttonClass}` : '';
+    newDataOption.buttonType = options.buttonType || 'button';
+    super(newDataOption, rootId);
   }
 
   render(): string {

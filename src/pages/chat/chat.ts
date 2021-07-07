@@ -6,7 +6,14 @@ import urls from '../../constants/urls';
 import { getChats } from '../../services/chatServices';
 import '../../utils/handlebarsHelpers';
 import { ActionTypes, GlobalStore } from '../../utils/store';
-import { IAvatarOptions, IButtonOptions, IChatListItemOptions, IChatPageOptions, IInputOptions, IModalOptions } from '../../utils/interfaces';
+import {
+  IAvatarOptions,
+  IButtonOptions,
+  IChatListItemOptions,
+  IChatPageOptions,
+  IInputOptions,
+  IModalOptions
+  } from '../../utils/interfaces';
 import { isNotEmpty } from '../../utils/validations';
 import redirections from '../../constants/redirections';
 import Router from '../../utils/router';
