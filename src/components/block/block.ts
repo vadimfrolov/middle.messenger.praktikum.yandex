@@ -210,7 +210,7 @@ abstract class Block {
   hide() {
     const rootElement = document.getElementById(this._rootId ?? '');
     if (rootElement) {
-      rootElement.style.display = 'none';
+      rootElement.classList.add('hidden');
     }
   }
 }
