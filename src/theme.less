@@ -1,9 +1,9 @@
 @primary-color: #1f160f;
 @secondary-color: lighten(@primary-color, 50%);
 
-@primary-background-color: #ebe6e3;
-@input-background-color: fade(@primary-background-color, 40%);
-@layout-background-color: fade(@primary-background-color, 10%);
+@grey-background-color-01: #ebe6e3;
+@grey-background-color-02: fade(@grey-background-color-01, 40%);
+@grey-background-color-03: fade(@grey-background-color-01, 10%);
 
 @selected-color: #f9e368;
 @secondary-background-color: lighten(@selected-color, 20%);
@@ -134,7 +134,7 @@
 }
 
 .list-aside() {
-  background-color: @layout-background-color;
+  background-color: @grey-background-color-03;
   height: calc(100% - 86px);
   min-width: 310px;
   padding: @general-padding 0;
