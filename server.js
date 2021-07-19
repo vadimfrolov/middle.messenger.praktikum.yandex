@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const { PORT } = process.env;
+const { PORT = 3000 } = process.env;
 const distFolder = `${__dirname}/dist`;
 
 app.use(express.static(distFolder));
