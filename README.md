@@ -1,6 +1,6 @@
-## PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
+## PR Sprint 4 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
 
-Юрий, Большое спасибо за ревью
+## Heroku - https://chat-yp.herokuapp.com/
 
 08.07
 
