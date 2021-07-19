@@ -6,7 +6,7 @@ const errors = {
   PASSWORD_INVALID: 'Пароль должен содержать не менее 8 символов, включая цифры, строчные и прописные буквы',
   PASSWORD_REPEAT: 'Пароли не совпадают',
   PHONE_INVALID: 'Введите корретный номер',
-  RESPONSE_FAILED: 'Бешеные лемуры бегают по кругу'
+  RESPONSE_FAILED: 'Какая-то проблема'
 };
 
 export default errors;

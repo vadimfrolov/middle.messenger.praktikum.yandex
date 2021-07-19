@@ -1,8 +1,6 @@
-import Handlebars from 'handlebars';
-
 import { IButtonOptions, IInputOptions, ILoginPageOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
-import { getFormData, getName } from '../../utils/utils';
+import { getFormData, getName, showAlert } from '../../utils/utils';
 import { isNotEmpty, isPassword } from '../../utils/validations';
 import { ActionTypes, GlobalStore } from '../../utils/store';
 import errors from '../../constants/errors';
@@ -97,7 +95,7 @@ class Login extends Block {
           GlobalStore.dispatchAction(ActionTypes.CURRENT_USER, JSON.parse(<string>userInfo));
           Router.go(redirections.CHATS);
         } catch (err) {
-          console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+          showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
         }
       }
     }
@@ -121,7 +119,6 @@ class Login extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(login);
     const {
       elementId,
       loginButton,
@@ -130,7 +127,7 @@ class Login extends Block {
       passwordInput
     } = this.props as ILoginPageOptions;
 
-    return template({
+    return login({
       elementId: elementId,
       loginButton: loginButton.render(),
       registerButton: registerButton.render(),

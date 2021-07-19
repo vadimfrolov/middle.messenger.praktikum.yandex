@@ -28,7 +28,7 @@ describe('Block component', () => {
       const testBlock = createBlock();
       const componentDidUpdateSpy = sinon.spy(testBlock, 'componentDidUpdate');
       testBlock.setProps(<IButtonOptions>newProp);
-      
+
       chai.expect(componentDidUpdateSpy).to.have.been.calledWith(defaultProps, newProp);
     });
 

@@ -1,11 +1,12 @@
 import { ActionTypes, GlobalStore } from './store';
-
 class ChatWebSocket {
   static __instance: ChatWebSocket;
   private socket;
+  private userId: number;
 
   constructor(userId?: string, selectedChatId?: number, selectedChatToken?: string) {
     if (userId && selectedChatId && selectedChatToken) {
+      this.userId = Number(userId);
       this.socket?.close();
       this.socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${selectedChatId}/${selectedChatToken}`);
       this.socket.addEventListener('open', this.onOpen.bind(this));
@@ -33,7 +34,20 @@ class ChatWebSocket {
   onMessage(event: Record<string, string>) {
     console.log('Получены данные', event);
     const chatMessages: unknown = GlobalStore.get('chatMessages');
-    const data = JSON.parse(event.data);
+    let data = JSON.parse(event.data);
+    if (data.type === 'user connected') {
+      return;
+    }
+
+    const configureData = (data: Record<string, unknown>) => ({
+      ...data, isMine: data.user_id === this.userId, isSent: !data.isMine
+    });
+    if (Array.isArray(data)) {
+      data = data.map((item: Record<string, unknown>) => configureData(item));
+      data.reverse();
+    } else {
+      data = configureData(data);
+    }
 
     GlobalStore.dispatchAction(ActionTypes.CHAT_MESSAGES,
       Array.isArray(data) ? [ ...(<Record<string, unknown>[]>chatMessages), ...data ] : [ ...(<Record<string, unknown>[]>chatMessages), data ]);

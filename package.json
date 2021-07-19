@@ -4,11 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel static/index.html -p 3000 --no-cache",
-    "dev": "parcel static/*.html",
-    "build": "parcel build static/index.html",
+    "start": "webpack serve",
+    "build": "webpack",
     "test": "mocha --require ignore-styles --require ts-node/register --exit --timeout 3000",
-    "lint": "eslint . --fix --ext .ts && stylelint --fix **/*.less"
+    "lint": "eslint . --fix --ext .ts && stylelint --fix **/*.less",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix --ext",
+      "git add"
+    ],
+    "**/*.less": [
+      "stylelint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -21,37 +31,46 @@
   },
   "homepage": "https://github.com/vadimfrolov/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.0",
-    "@babel/preset-typescript": "^7.13.0",
-    "@babel/register": "^7.13.16",
-    "@types/chai": "^4.2.17",
-    "@types/jsdom": "^16.2.10",
-    "@types/jsdom-global": "^3.0.2",
-    "@types/mocha": "^8.2.2",
-    "@types/sinon-chai": "^3.2.5",
-    "@typescript-eslint/eslint-plugin": "^4.21.0",
-    "@typescript-eslint/parser": "^4.21.0",
-    "chai": "^4.3.4",
-    "eslint": "^7.23.0",
-    "express": "^4.17.1",
-    "handlebars": "^4.7.7",
-    "ignore-styles": "^5.0.1",
-    "jsdom": "^16.5.3",
-    "jsdom-global": "^3.0.2",
-    "less": "^4.1.1",
-    "mocha": "^8.3.2",
-    "mocha-jsdom": "^2.0.0",
-    "netlify": "^6.1.16",
-    "parcel-bundler": "^1.12.5",
-    "parcel-plugin-handlebars-precompile": "^1.0.2",
-    "parcel-plugin-static-files-copy": "^2.6.0",
-    "sinon": "^10.0.0",
-    "sinon-chai": "^3.6.0",
-    "stylelint": "^13.12.0",
-    "stylelint-config-standard": "^21.0.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "@babel/core": "7.14.0",
+    "@babel/preset-env": "7.14.0",
+    "@babel/preset-typescript": "7.13.0",
+    "@babel/register": "7.13.16",
+    "@types/chai": "4.2.18",
+    "@types/jsdom": "16.2.10",
+    "@types/jsdom-global": "3.0.2",
+    "@types/mocha": "8.2.2",
+    "@types/sinon-chai": "3.2.5",
+    "@typescript-eslint/eslint-plugin": "4.22.1",
+    "@typescript-eslint/parser": "4.22.1",
+    "babel-loader": "^8.2.2",
+    "chai": "4.3.4",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "5.2.4",
+    "eslint": "7.26.0",
+    "express": "4.17.1",
+    "file-loader": "6.2.0",
+    "handlebars": "4.7.7",
+    "handlebars-loader": "1.7.1",
+    "html-webpack-plugin": "^5.3.1",
+    "ignore-styles": "5.0.1",
+    "jsdom": "16.5.3",
+    "jsdom-global": "3.0.2",
+    "less": "4.1.1",
+    "less-loader": "8.1.1",
+    "mocha": "8.4.0",
+    "mocha-jsdom": "2.0.0",
+    "sinon": "10.0.0",
+    "sinon-chai": "3.6.0",
+    "style-loader": "2.0.0",
+    "stylelint": "13.12.0",
+    "stylelint-config-standard": "21.0.0",
+    "ts-loader": "9.1.2",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.4",
+    "webpack": "5.37.0",
+    "webpack-cli": "4.7.0",
+    "webpack-dev-server": "3.11.2",
+    "husky": "^6.0.0"
   },
   "staticFiles": {
     "staticPath": [
@@ -69,7 +88,5 @@
       }
     ]
   },
-  "dependencies": {
-    "cowsay": "^1.4.0"
-  }
+  "dependencies": {}
 }

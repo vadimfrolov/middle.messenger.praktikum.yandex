@@ -1,10 +1,9 @@
-import Handlebars from 'handlebars';
-
 import errors from '../../constants/errors';
 import urls from '../../constants/urls';
 import redirections from '../../constants/redirections';
 import titles from '../../constants/titles';
 import { ActionTypes, GlobalStore } from '../../utils/store';
+import { showAlert } from '../../utils/utils';
 import { IAvatarOptions, IButtonOptions, IProfilePageOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
 import AuthApi from '../../api/authApi';
@@ -89,7 +88,7 @@ class Profile extends Block {
         const profileInfo = await new AuthApi().getUserInfo();
         GlobalStore.dispatchAction(ActionTypes.CURRENT_USER, JSON.parse(<string>profileInfo));
       } catch (err) {
-        console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+        showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
       }
     }
   }
@@ -100,7 +99,7 @@ class Profile extends Block {
       GlobalStore.dispatchAction(ActionTypes.LOGOUT);
       Router.go(redirections.LOGOUT);
     } catch (err) {
-      console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+      showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
     }
   }
 
@@ -117,7 +116,6 @@ class Profile extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(profile);
     const {
       elementId,
       aside,
@@ -127,7 +125,7 @@ class Profile extends Block {
       logoutButton,
     } = this.props as IProfilePageOptions;
 
-    return template({
+    return profile({
       elementId: elementId,
       aside: aside.render(),
       profileAvatar: profileAvatar.render(),

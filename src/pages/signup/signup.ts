@@ -1,12 +1,10 @@
-import Handlebars from 'handlebars';
-
 import errors from '../../constants/errors';
 import inputNames from '../../constants/inputNames';
 import redirections from '../../constants/redirections';
 import titles from '../../constants/titles';
 import { IButtonOptions, IInputOptions, ISignupPageOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
-import { getFormData, getName } from '../../utils/utils';
+import { getFormData, getName, showAlert } from '../../utils/utils';
 import { isEmail, isNotEmpty, isPassword, isPasswordSame, isPhone } from '../../utils/validations';
 import AuthApi from '../../api/authApi';
 import Block from '../../components/block/block';
@@ -162,7 +160,7 @@ class Signup extends Block {
           await new AuthApi().signup(data);
           Router.go(redirections.CHATS);
         } catch (err) {
-          console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+          showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
         }
       }
     }
@@ -186,7 +184,6 @@ class Signup extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(signup);
     const {
       elementId,
       signupButton,
@@ -200,7 +197,7 @@ class Signup extends Block {
       passwordRepeatInput
     } = this.props as ISignupPageOptions;
 
-    return template({
+    return signup({
       elementId: elementId,
       signupButton: signupButton.render(),
       rememberAllButton: rememberAllButton.render(),

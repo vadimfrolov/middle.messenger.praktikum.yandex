@@ -1,5 +1,3 @@
-import Handlebars from 'handlebars';
-
 interface IDateStringOptions {
   minute?: 'numeric' | '2-digit';
   hour?: 'numeric' | '2-digit';
@@ -8,10 +6,11 @@ interface IDateStringOptions {
   day?: 'numeric' | '2-digit';
 }
 
-Handlebars.registerHelper('img', (src: string, options: Record<string, Record<string, string>>) => `<img src='${src}'${options.hash.class ? ' class=\'' + options.hash.class + '\'': ''} alt='${options.hash.alt}' />`);
-
-Handlebars.registerHelper('date', (src: string) => {
-  if (!src) { return ''; }
+module.exports = function(src: string) {
+  if (!src) { 
+    return ''; 
+  }
+  
   const date = new Date(src);
   const options: IDateStringOptions = {
     hour: '2-digit',
@@ -30,4 +29,4 @@ Handlebars.registerHelper('date', (src: string) => {
   }
 
   return new Date(src).toLocaleTimeString('ru-RU', options);
-});
+};
