@@ -1,6 +1,13 @@
+## PR Sprint 4 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/10
 ## PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
 
-Юрий, Большое спасибо за ревью
+19.07
+
+- добавил Docker
+- добавил настройки webpack
+- добавл husky
+- обновил npm пакеты
+## Heroku - https://protected-atoll-47793.herokuapp.com/
 
 08.07
 
@@ -11,10 +18,6 @@
 - вынес цвет кнопки в переменную
 - убрал мутабельность options - добавил переменную
 - улучшил читаемость импортов в chat.ts
-
-Вопрос по дополнительному слою для методов API и по переделке рендера в hbs обдумаю, и сделаю в 4ом спринте.
-
-Буду очень признателен, если примете работу, смогу поправить в процессе эти два пункта и по теории буду дальше продвигаться.
 
 06.07
 
