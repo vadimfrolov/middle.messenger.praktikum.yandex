@@ -1,6 +1,11 @@
 ## PR Sprint 4 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/11
 ## PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
 
+21.07
+
+- исправил ошибки с отображением кнопок профиля и перехода в login
+- привёл к единому стилю - убрал двойные кавычки в chat.ts
+
 19.07
 
 - добавил Docker
