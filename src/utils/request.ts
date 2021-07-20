@@ -1,6 +1,3 @@
-import Router from '../utils/router';
-import redirections from '../constants/redirections';
-
 const METHODS = {
   GET: 'GET',
   POST: 'POST',
@@ -73,10 +70,6 @@ export class HTTPTransport {
 
         if (xhr.status === 404) {
           resolve('[]');
-        }
-
-        if (xhr.status === 401) {
-          Router.go(redirections.LOGOUT);
         }
 
         if (xhr.status !== 200) {
