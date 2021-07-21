@@ -1,4 +1,4 @@
 declare module '*.html' {
-  const value: string;
+  const value: (props: Record<string, unknown>) => string;
   export default value;
 }

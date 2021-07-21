@@ -30,6 +30,12 @@ interface IButtonOptions extends IOptions {
   buttonImg?: string;
 }
 
+interface IAlertOptions extends IOptions {
+  alertClass: string;
+  message: string;
+  closeButton?: Button;
+}
+
 interface IInputOptions extends IOptions {
   inputId?: string;
   label?: string;
@@ -161,6 +167,7 @@ interface IChatListOptions extends IOptions {
 
 export {
   IButtonOptions,
+  IAlertOptions,
   IInputOptions,
   IOptions,
   ILoginPageOptions,

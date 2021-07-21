@@ -1,11 +1,12 @@
-﻿import Handlebars from 'handlebars';
-
-import inputNames from '../../constants/inputNames';
+﻿import inputNames from '../../constants/inputNames';
 import redirections from '../../constants/redirections';
 import titles from '../../constants/titles';
+import messages from '../../constants/messages';
+import errors from '../../constants/errors';
 import { GlobalStore, ActionTypes } from '../../utils/store';
 import { IButtonOptions, IChatListItemOptions, IChatListOptions, IInputOptions, IModalOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
+import { showAlert } from '../../utils/utils';
 import { isNotEmpty } from '../../utils/validations';
 import { getChats } from '../../services/chatServices';
 import { getUsers } from '../../services/userServices';
@@ -95,7 +96,7 @@ class ChatList extends Block {
             const parsedChats = await getChats(title);
             GlobalStore.dispatchAction(ActionTypes.CHAT_LIST, parsedChats);
           } catch (err) {
-            console.error(err);
+            showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
           }
         }
       }}
@@ -144,15 +145,13 @@ class ChatList extends Block {
 
               if (finalUsersIds.length) {
                 await new ChatsApi().addUsersToChat({ users: finalUsersIds, chatId: <string>selectedChatId});
-                if (finalUsersIds!.length !== newUsers!.length) {
-                  console.error('some users are already in this chat');
-                }
+                showAlert('alert-success', finalUsersIds!.length !== newUsers!.length ? messages.ADDED_NOT_ALL_USERS : messages.USERS_ADDED);
               } else {
-                console.error('no new users for adding');
+                showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${messages.NO_USERS_FOR_ADDING}`);
               }
             }
           } catch (err) {
-            console.error(err);
+            showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
           } finally {
             const addUserModal = document.querySelector('#add-user');
             addUserModal?.classList.remove('modal-open');
@@ -168,7 +167,6 @@ class ChatList extends Block {
       events: { click: async () => {
         const deleteUserInput = document.querySelector('#delete-user-input');
         if (deleteUserInput) {
-          // TODO: add to service
           try {
             const title = (<Input>(<IModalOptions>(<IChatListOptions> this.props).modalWindowDeleteUser.props).modalInput);
             if (title.validate()) {
@@ -178,15 +176,13 @@ class ChatList extends Block {
 
               if (finalUsersIds.length) {
                 await new ChatsApi().removeUsersFromChat({ users: finalUsersIds, chatId: <string>selectedChatId});
-                if (finalUsersIds!.length !== usersToDelete!.length) {
-                  console.error('some users are not from this chat');
-                }
+                showAlert('alert-success', finalUsersIds!.length !== usersToDelete!.length ? messages.DELETED_NOT_ALL_USERS : messages.USERS_DELETED);
               } else {
-                console.error('no users for deleting');
+                showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${messages.NO_USERS_FOR_DELETING}`);
               }
             }
           } catch (err) {
-            console.error(err);
+            showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
           } finally {
             const addUserModal = document.querySelector('#delete-user');
             addUserModal?.classList.remove('modal-open');
@@ -207,8 +203,9 @@ class ChatList extends Block {
           await new ChatsApi().deleteChat(<Record<string, string>>{ chatId: selectedChatId });
           const parsedChats = await getChats();
           GlobalStore.dispatchAction(ActionTypes.CHAT_LIST, parsedChats);
+          showAlert('alert-success', messages.CHAT_DELETED);
         } catch (err) {
-          console.error(err);
+          showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
         } finally {
           const deleteChatModal = document.querySelector('#delete-chat');
           deleteChatModal?.classList.remove('modal-open');
@@ -236,9 +233,10 @@ class ChatList extends Block {
               await new ChatsApi().createChat({ 'title': (<IInputOptions>title.props).info ?? ''});
               const parsedChats = await getChats();
               GlobalStore.dispatchAction(ActionTypes.CHAT_LIST, parsedChats);
+              showAlert('alert-success', messages.CHAT_ADDED);
             }
           } catch (err) {
-            console.error(err);
+            showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
           } finally {
             const createChatModal = document.querySelector('#create-chat');
             createChatModal?.classList.remove('modal-open');
@@ -324,12 +322,12 @@ class ChatList extends Block {
 
   async componentDidMount() {
     GlobalStore.subscribe(ActionTypes.CHAT_LIST, this.chatListCallback.bind(this));
-
     try {
       const parsedChats = await getChats();
+      // console.log(parsedChats, 'parsedChats');
       GlobalStore.dispatchAction(ActionTypes.CHAT_LIST, parsedChats);
     } catch (err) {
-      console.error(err);
+      showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
     }
   }
 
@@ -339,7 +337,6 @@ class ChatList extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(chatList);
     const {
       elementId,
       createChatButton,
@@ -356,7 +353,7 @@ class ChatList extends Block {
       chatListItems
     } = this.props as IChatListOptions;
 
-    return template({
+    return chatList({
       elementId: elementId,
       createChatButton: createChatButton.render(),
       profileButton: profileButton.render(),

@@ -1,8 +1,5 @@
-import Handlebars from 'handlebars';
-
 import redirections from '../../constants/redirections';
 import titles from '../../constants/titles';
-import '../../utils/handlebarsHelpers';
 import { IButtonOptions, IErrorPageOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
 import Block from '../../components/block/block';
@@ -34,13 +31,12 @@ export class Oops extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(oops);
     const {
       elementId,
       returnToChatsButton
     } = this.props as IErrorPageOptions;
 
-    return template({
+    return oops({
       elementId: elementId,
       returnToChatsButton: returnToChatsButton.render(),
       titles,

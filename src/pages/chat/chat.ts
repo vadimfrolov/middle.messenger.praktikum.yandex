@@ -1,20 +1,12 @@
-﻿import Handlebars from 'handlebars';
-
-import inputNames from '../../constants/inputNames';
+﻿import inputNames from '../../constants/inputNames';
+import errors from '../../constants/errors';
 import titles from '../../constants/titles';
 import urls from '../../constants/urls';
 import { getChats } from '../../services/chatServices';
-import '../../utils/handlebarsHelpers';
 import { ActionTypes, GlobalStore } from '../../utils/store';
-import {
-  IAvatarOptions,
-  IButtonOptions,
-  IChatListItemOptions,
-  IChatPageOptions,
-  IInputOptions,
-  IModalOptions
-  } from '../../utils/interfaces';
+import { IAvatarOptions, IButtonOptions, IChatListItemOptions, IChatPageOptions, IInputOptions, IModalOptions } from '../../utils/interfaces';
 import { isNotEmpty } from '../../utils/validations';
+import { showAlert } from '../../utils/utils';
 import redirections from '../../constants/redirections';
 import Router from '../../utils/router';
 import AuthApi from '../../api/authApi';
@@ -150,14 +142,18 @@ class Chat extends Block {
   }
 
   async componentDidMount() {
-    const userInfo = await new AuthApi().getUserInfo();
-    GlobalStore.dispatchAction(ActionTypes.CURRENT_USER, JSON.parse(<string>userInfo));
+    try {
+      const userInfo = await new AuthApi().getUserInfo();
+      GlobalStore.dispatchAction(ActionTypes.CURRENT_USER, JSON.parse(<string>userInfo));
 
-    if (GlobalStore.get('selectedChatId') && GlobalStore.get('selectedChatToken')) {
-      this.connectToChat();
+      if (GlobalStore.get('selectedChatId') && GlobalStore.get('selectedChatToken')) {
+        this.connectToChat();
+      }
+
+      GlobalStore.subscribe(ActionTypes.CHAT_MESSAGES, this.onChatMessage.bind(this));
+    } catch (err) {
+      showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
     }
-
-    GlobalStore.subscribe(ActionTypes.CHAT_MESSAGES, this.onChatMessage.bind(this));
   }
 
   afterRender(): void {
@@ -183,10 +179,12 @@ class Chat extends Block {
     if (!GlobalStore.get('selectedChatId')) {
       Router.go(redirections.CHATS);
     }
+
+    const el = document.querySelector('.chat-feed');
+    el!.scrollTop = el!.scrollHeight;
   }
 
   render(): string {
-    const template = Handlebars.compile(chat);
     const {
       elementId,
       profileAvatar,
@@ -198,7 +196,7 @@ class Chat extends Block {
       chatMessages
     } = this.props as IChatPageOptions;
 
-    return template({
+    return chat({
       elementId: elementId,
       profileAvatar: profileAvatar.render(),
       chatInput: chatInput.render(),
@@ -225,13 +223,40 @@ class Chat extends Block {
   }
 
   private sendChatMessage(message: string) {
+    if (message === '') {
+      return
+    }
+
     (new ChatWebSocket()).send({
       content: message,
       type: 'message',
     });
   }
 
-  private onChatMessage(state: Record<string, unknown>) {
+  private async onChatMessage(state: Record<string, unknown>) {
+    const id = GlobalStore.get('selectedChatId');
+    try {
+      const count = await new ChatsAPI().getUnreadMessagesByChatId(<number>id);
+      let chats = GlobalStore.get('chatList');
+      const changeData = (data: Record<string, unknown>) => {
+        if (data.id === id) {
+          data.unread_count = JSON.parse(<string>count).unread_count;
+        }
+
+        return data;
+      };
+
+      if (Array.isArray(chats)) {
+        chats = chats.map(chat => changeData(chat));
+      } else if (typeof chats === 'object') {
+        chats = changeData(chats);
+      }
+
+      GlobalStore.dispatchAction(ActionTypes.CHAT_LIST, chats);
+    } catch (err) {
+      console.log('can not get unread messages');
+    }
+
     this.setProps(<IChatPageOptions>{ chatMessages: state.chatMessages });
   }
 }

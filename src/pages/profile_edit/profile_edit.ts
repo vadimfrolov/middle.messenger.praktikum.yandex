@@ -1,14 +1,13 @@
-import Handlebars from 'handlebars';
-
 import urls from '../../constants/urls';
 import errors from '../../constants/errors';
 import inputNames from '../../constants/inputNames';
+import messages from '../../constants/messages';
 import redirections from '../../constants/redirections';
 import titles from '../../constants/titles';
 import { ActionTypes, GlobalStore } from '../../utils/store';
 import { IAvatarOptions, IButtonOptions, IInputOptions, IProfileEditPageOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
-import { getFormData, getName } from '../../utils/utils';
+import { getFormData, getName, showAlert } from '../../utils/utils';
 import { isEmail, isNotEmpty, isPhone } from '../../utils/validations';
 import AuthApi from '../../api/authApi';
 import UserApi from '../../api/userApi';
@@ -157,8 +156,9 @@ class ProfileEdit extends Block {
         try {
           await new UserApi().changeProfile(data);
           Router.go(redirections.PROFILE);
+          showAlert('alert-success', messages.PROFILE_CHANGED);
         } catch (err) {
-          console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+          showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
         }
       }
     }
@@ -183,7 +183,7 @@ class ProfileEdit extends Block {
       const profileInfo = await new AuthApi().getUserInfo();
       GlobalStore.dispatchAction(ActionTypes.CURRENT_USER, JSON.parse(<string>profileInfo));
     } catch (err) {
-      console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+      showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
     }
   }
 
@@ -208,7 +208,6 @@ class ProfileEdit extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(profileEdit);
     const {
       elementId,
       aside,
@@ -222,7 +221,7 @@ class ProfileEdit extends Block {
       phoneInput
     } = this.props as IProfileEditPageOptions;
 
-    return template({
+    return profileEdit({
       elementId: elementId,
       aside: aside.render(),
       profileAvatar: profileAvatar.render(),

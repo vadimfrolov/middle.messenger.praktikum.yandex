@@ -1,10 +1,9 @@
-import Handlebars from 'handlebars';
-
 import errors from '../../constants/errors';
 import redirections from '../../constants/redirections';
 import { IAvatarOptions, IChatListItemOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
 import { ActionTypes, GlobalStore } from '../../utils/store';
+import { showAlert } from '../../utils/utils';
 import ChatsApi from '../../api/chatsApi';
 import Avatar from '../avatar/avatar';
 import Block from '../block/block';
@@ -30,7 +29,7 @@ class ChatListItem extends Block {
           GlobalStore.dispatchAction(ActionTypes.SELECTED_CHAT_TOKEN, JSON.parse(<string>chatInfoToken).token);
           this._redirect();
         } catch (err) {
-          console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+          showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
         }
       }
     }};
@@ -53,10 +52,9 @@ class ChatListItem extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(chatListItem);
     const { profileAvatar } = this.props as IChatListItemOptions;
 
-    return template({
+    return chatListItem({
       ...this.props,
       profileAvatar: profileAvatar!.render()
     });

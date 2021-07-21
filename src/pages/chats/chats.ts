@@ -1,5 +1,3 @@
-import Handlebars from 'handlebars';
-
 import { IChatsPageOptions } from '../../utils/interfaces';
 import titles from '../../constants/titles';
 import Block from '../../components/block/block';
@@ -20,13 +18,12 @@ class Chats extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(chats);
     const {
       elementId,
       chatListComponent
     } = this.props as IChatsPageOptions;
 
-    return template({
+    return chats({
       elementId: elementId,
       chatListComponent: chatListComponent.render(),
       titles,

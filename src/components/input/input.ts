@@ -1,5 +1,3 @@
-import Handlebars from 'handlebars';
-
 import { IInputOptions } from '../../utils/interfaces';
 import { generateRandomString } from '../../utils/utils';
 import Block from '../block/block';
@@ -60,9 +58,7 @@ export class Input extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(input);
-
-    return template(this.props);
+    return input({...this.props});
   }
 }
 

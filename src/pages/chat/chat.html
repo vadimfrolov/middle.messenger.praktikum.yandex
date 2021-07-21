@@ -14,8 +14,8 @@
         {{#if isMine}}
           <div class='chat-feed-item mine'>
             <div class='chat-feed-item-time'>
-              {{timestamp}}
-              {{#if isOpened}}
+              {{date time}}
+              {{#if is_read}}
                 {{#img '/assets/doublecheck.svg'}}{{/img}}
               {{else}}
                 {{#if isSent}}
@@ -33,7 +33,7 @@
         {{else}}
 
           <div class='chat-feed-item'>
-            <div class='chat-feed-item-time'>{{timestamp}}</div>
+            <div class='chat-feed-item-time'>{{date time}}</div>
             {{#if content}}
               <div class='chat-feed-item-cloud'>{{content}}</div>
             {{else}}
@@ -45,22 +45,7 @@
     </div>
 
     <div class='chat-footer'>
-      <div class='chat-footer-menu'>
-        <ul>
-          <li class='chat-footer-menu-item'>
-            {{#img photoImg alt='photo' class='chat-footer-menu-icon'}}{{/img}}
-            <span class='chat-footer-menu-label'>{{titles.PRHOTO}}</span>
-          </li>
-          <li class='chat-footer-menu-item'>
-            {{#img fileImg alt='file' class='chat-footer-menu-icon'}}{{/img}}
-            <span class='chat-footer-menu-label'>{{titles.FILE}}</span>
-          </li>
-          <li class='chat-footer-menu-item'>
-            {{#img locationImg alt='location' class='chat-footer-menu-icon'}}{{/img}}
-            <span class='chat-footer-menu-label'>{{titles.LOCATION}}</span>
-          </li>
-        </ul>
-      </div>
+
       <div class='chat-footer-text'>{{{chatInput}}}</div>
       <div class='chat-footer-submit'>{{{submitButton}}}</div>
     </div>

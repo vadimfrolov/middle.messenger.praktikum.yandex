@@ -1,13 +1,13 @@
-import Handlebars from 'handlebars';
-
 import errors from '../../constants/errors';
 import inputNames from '../../constants/inputNames';
+import messages from '../../constants/messages';
 import titles from '../../constants/titles';
 import redirections from '../../constants/redirections';
+import urls from '../../constants/urls';
 import { ActionTypes, GlobalStore } from '../../utils/store';
 import { IAvatarOptions, IButtonOptions, IChangePasswordPageOptions, IInputOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
-import { getFormData, getName } from '../../utils/utils';
+import { getFormData, getName, showAlert } from '../../utils/utils';
 import { isPassword, isPasswordSame } from '../../utils/validations';
 import AuthApi from '../../api/authApi';
 import UserApi from '../../api/userApi';
@@ -108,8 +108,9 @@ class ChangePassword extends Block {
           delete data.passwordRepeatInput;
           await new UserApi().changePassword(data);
           Router.go(redirections.PROFILE);
+          showAlert('alert-success', messages.PASSWORD_CHANGED);
         } catch (err) {
-          console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+          showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
         }
       }
     }
@@ -134,16 +135,15 @@ class ChangePassword extends Block {
       const profileInfo = await new AuthApi().getUserInfo();
       GlobalStore.dispatchAction(ActionTypes.CURRENT_USER, JSON.parse(<string>profileInfo));
     } catch (err) {
-      console.error(`${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
+      showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
     }
   }
 
   private onAvatarInfo(state: Record<string, Record<string, string>>) {
-    (<IChangePasswordPageOptions> this.props).profileAvatar.setProps(<IAvatarOptions>{ avatarSrc: `https://ya-praktikum.tech/api/v2/resources${state.currentUser.avatar}` });
+    (<IChangePasswordPageOptions> this.props).profileAvatar.setProps(<IAvatarOptions>{ avatarSrc: `${urls.AVATAR}${state.currentUser.avatar}` });
   }
 
   render(): string {
-    const template = Handlebars.compile(changePassword);
     const {
       elementId,
       aside,
@@ -154,7 +154,7 @@ class ChangePassword extends Block {
       passwordRepeatInput
     } = this.props as IChangePasswordPageOptions;
 
-    return template({
+    return changePassword({
       elementId: elementId,
       aside: aside.render(),
       profileAvatar: profileAvatar.render(),

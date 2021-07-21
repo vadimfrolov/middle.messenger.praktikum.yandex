@@ -1,5 +1,3 @@
-import Handlebars from 'handlebars';
-
 import { IModalOptions, IOptions } from '../../utils/interfaces';
 import Block from '../block/block';
 import modal from './modal.html';
@@ -52,10 +50,9 @@ class Modal extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(modal);
     const { modalInput, modalButton, modalCancelButton } = this.props as IModalOptions;
 
-    return template({
+    return modal({
       ...this.props,
       modalInput: modalInput?.render(),
       modalButton: modalButton.render(),

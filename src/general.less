@@ -28,3 +28,32 @@ h1 {
 h2 {
   font-size: @font-size-primary * 2;
 }
+
+.alert {
+  align-items: center;
+  border-radius: @button-radius;
+  color: @white-color;
+  display: none;
+  font-size: @font-size-big;
+  justify-content: center;
+  height: 40px;
+  padding: 5px;
+  position: fixed;
+  right: 50%;
+  top: 15px;
+  transform: translate(50%);
+  width: 650px;
+  z-index: 3000;
+
+  &-open {
+    display: flex;
+  }
+
+  &-error {
+    background-color: fade(@error-color, 90%);
+  }
+
+  &-success {
+    background-color: fade(@success-color, 80%);
+  }
+}

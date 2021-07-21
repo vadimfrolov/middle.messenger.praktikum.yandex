@@ -53,6 +53,10 @@ class ChatAPI {
   uploadAvatar(payload: FormData) {
     return chatsAPIInstance.put('/avatar', { data: payload, isFormData: true });
   }
+
+  getUnreadMessagesByChatId(id: number) {
+    return chatsAPIInstance.get(`/new/${id}`);
+  }
 }
 
 export default ChatAPI;

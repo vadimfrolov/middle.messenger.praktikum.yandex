@@ -1,5 +1,3 @@
-import Handlebars from 'handlebars';
-
 import { IAsideOptions, IButtonOptions } from '../../utils/interfaces';
 import Router from '../../utils/router';
 import Block from '../block/block';
@@ -29,10 +27,9 @@ class Aside extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(aside);
     const { backButton } = this.props as IAsideOptions;
 
-    return template({
+    return aside({
       elementId: this.props.elementId,
       backButton: backButton.render(),
     });

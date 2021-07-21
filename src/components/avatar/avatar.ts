@@ -1,7 +1,4 @@
-import Handlebars from 'handlebars';
-
 import urls from '../../constants/urls';
-import '../../utils/handlebarsHelpers';
 import { IAvatarOptions, IInputOptions } from '../../utils/interfaces';
 import Block from '../block/block';
 import Input from '../input/input';
@@ -40,10 +37,9 @@ class Avatar extends Block {
   }
 
   render(): string {
-    const template = Handlebars.compile(avatar);
     const { avatarSrc, avatarInput } = this.props as IAvatarOptions;
 
-    return template({
+    return avatar({
       ...this.props,
       avatarSrc: avatarSrc ?? DEFAULT_AVATAR,
       isEmpty: avatarSrc === DEFAULT_AVATAR || !avatarSrc,
