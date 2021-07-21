@@ -2,7 +2,7 @@ import inputNames from '../constants/inputNames';
 import errors from '../constants/errors';
 
 const isEmail = (email: string): string => {
-  const pattern = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  const pattern = /^([a-zA-Z0-9_.-d\+1/])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
   return pattern.test(email) ? '' : errors.EMAIL_INVALID;
 };
@@ -25,7 +25,7 @@ const isPasswordSame = (repeatedPassword: string): string => {
 const isNotEmpty = (value: string): string => value ? '' : errors.FILL_FIELD;
 
 const isPhone = (phone = ''): string => {
-  const pattern = /^((8|\+7)[- ]?)?((\?\d{3})?[- ]?)?[\d- ]{7,10}$/;
+  const pattern = /([0-9\s\-]{7,})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
 
   return pattern.test(phone.replace(' ', '')) ? '' : errors.PHONE_INVALID;
 };

@@ -1,6 +1,10 @@
 ## PR Sprint 4 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/11
 ## PR Sprint 3 - https://github.com/vadimfrolov/middle.messenger.praktikum.yandex/pull/9
 
+22.07
+- поправил баг с парсингом сообщений
+- улучшил правила валидации почти и номера телефона
+
 21.07
 
 - исправил ошибки с отображением кнопок профиля и перехода в login

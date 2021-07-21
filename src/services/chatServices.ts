@@ -7,7 +7,7 @@ export const getChats = async (title = '') => {
     const parsedChats = JSON.parse(<string>chats);
 
     return parsedChats.map((chat: Record<string, unknown>) => {
-      chat.last_message = JSON.parse(<string>chat.last_message);
+      // chat.last_message = JSON.parse(<string>chat.last_message);
 
       return chat;
     });

@@ -322,9 +322,9 @@ class ChatList extends Block {
 
   async componentDidMount() {
     GlobalStore.subscribe(ActionTypes.CHAT_LIST, this.chatListCallback.bind(this));
-
     try {
       const parsedChats = await getChats();
+      // console.log(parsedChats, 'parsedChats');
       GlobalStore.dispatchAction(ActionTypes.CHAT_LIST, parsedChats);
     } catch (err) {
       showAlert('alert-error', `${errors.RESPONSE_FAILED}: ${err?.reason || err}`);
